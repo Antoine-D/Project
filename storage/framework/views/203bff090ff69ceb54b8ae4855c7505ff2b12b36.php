@@ -83,9 +83,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Articles</a>
-                    <a href="https://laracasts.com">Catégories</a>
-                    <a href="https://laravel-news.com">Les 24h</a>
+                    <a href="#">Articles</a>
+                    <a href="#">Catégories</a>
+                    <a href="#">Les 24h</a>
                     <a href="#">La rédaction</a>
                 </div>
             </div>
