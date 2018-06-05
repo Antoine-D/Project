@@ -2,7 +2,7 @@
 /public/hot
 /public/storage
 /storage/*.key
-/vendor
+vendor/*
 /.idea
 /.vagrant
 Homestead.json
@@ -10,3 +10,19 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+
+	new file:   app/Http/Controllers/SearchController.php
+	new file:   resources/views/layout.blade.php
+	new file:   resources/views/search.blade.phpgi
+	modified:   .gitignore
+	modified:   app/Http/Controllers/SearchController.php
+	modified:   bootstrap/cache/services.php
+	modified:   composer.json
+	modified:   composer.lock
+	modified:   config/app.php
+	modified:   resources/views/home.blade.php
+	modified:   resources/views/layout.blade.php
+	modified:   resources/views/welcome.blade.php
+	modified:   routes/web.php
+	modified:   storage/framework/views/203bff090ff69ceb54b8ae4855c7505ff2b12b36.php
+	modified:   storage/logs/laravel.log

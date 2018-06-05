@@ -17,4 +17,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/logout', function () {
+    Auth::logout();
+    return view('welcome');
+});
+
+Route::get('/chat', function () {
+    return view('welcome');
+});
+
+Route::get('/friends', function () {
+    return view('welcome');
+});
+
+Route::post('/search', 'SearchController@search');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
