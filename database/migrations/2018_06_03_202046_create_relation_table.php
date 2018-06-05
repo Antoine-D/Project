@@ -15,10 +15,13 @@ class CreateRelationTable extends Migration
     {
         Schema::create('relation', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('idrecu');
-            $table->string('status');
+            $table->integer('idSender');
+            $table->integer('idReceived');
+            $table->integer('status');
             $table->timestamps();
 
+            $table->foreign('idSender')->references('id')->on('users');
+            $table->foreign('idReceived')->references('id')->on('users');
         });
     }
 
