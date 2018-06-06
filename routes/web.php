@@ -17,8 +17,28 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/logout', function () {
+    Auth::logout();
+    return view('welcome');
+});
+
+Route::get('/chat', function () {
+    return view('welcome');
+});
+
+Route::get('/friends', function () {
+    return view('welcome');
+});
+
+Route::post('/search', 'SearchController@search');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+});
