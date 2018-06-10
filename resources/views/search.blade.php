@@ -15,20 +15,20 @@
             </tr>
             </thead>
             <tbody>
-        @foreach($users as $key=>$user)
-                    <tr>
-                        <th scope="row">{{ $key +1}}</th>
-                        <td>{{ $user->name}}</td>
-                        <td>
-                            {!! Form::open(['url' => 'add']) !!}
-                                {!! Form::submit('Ajouter',array('class' => 'btn btn-success')) !!}
-                            {!! Form::close() !!}
-                        </td>
-                    </tr>
+            @foreach($users as $key=>$user)
+                <tr>
+                    <th scope="row">{{ $key +1}}</th>
+                    <td>{{ $user->name}}</td>
+                    <td>
+                        {!! Form::open(['url' => 'add']) !!}
+                        {!! Form::submit('Ajouter',array('class' => 'btn btn-success')) !!}
+                        {!! Form::close() !!}
+                    </td>
+                </tr>
             @endforeach
-                <tbody>
-            </table>
-            <p></p>
+            <tbody>
+        </table>
+        <p></p>
 
 
     @endif

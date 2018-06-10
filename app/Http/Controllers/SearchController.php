@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Post;
 
 class SearchController extends Controller
 {
@@ -12,7 +12,7 @@ class SearchController extends Controller
         if(empty($name)){
             return view('search', ['error' => 'Recherche incorrect, aucun nom renseigné']);
         }
-        $users = \App\Models\User::where('name','like','%'.$name.'%')->get();
+        $users = \App\User::where('name','like','%'.$name.'%')->get();
         return view('search', ['users' => $users]);
     }
 }

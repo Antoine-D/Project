@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-<!-- Styles -->
+    <!-- Styles -->
     <style>
         html, body {
             background-color: #fff;
@@ -76,13 +76,13 @@
         <div class="top-right links">
             @if (Auth::check())
                 <a href="{{ url('/') }}">Home</a>
-                <a href="{{ url('/chat') }}">Mes discutions</a>
+                <a href="{{ url('/messages') }}">Mes discutions</a>
                 <a href="{{ url('/friends') }}">Mes amis</a>
                 <a href="{{ url('/logout') }}">Se deconnecter</a>
                 <br><br>
                 {!! Form::open(['url' => 'search']) !!}
                 {!! Form::text('name_search') !!}
-                {!! Form::submit('Recherchez un amis',array('class' => 'btn btn-success')) !!}
+                {!! Form::submit('Recherchez un ami',array('class' => 'btn btn-success')) !!}
                 {!! Form::close() !!}
             @else
                 <a href="{{ url('/login') }}">Login</a>
@@ -90,11 +90,11 @@
             @endif
         </div>
     @endif
-        <h1>@yield('pageTitle')</h1>
+    <h1>@yield('pageTitle')</h1>
 
-        <div class="content">
-            @yield('content')
-        </div>
+    <div class="content">
+        @yield('content')
+    </div>
 </div>
 </body>
 </html>

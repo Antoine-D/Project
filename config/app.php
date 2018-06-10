@@ -176,8 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        Cmgmyr\Messenger\MessengerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Reliese\Coders\CodersServiceProvider::class
     ],
 
     /*
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
     ],
 
 ];
