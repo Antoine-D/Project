@@ -11,6 +11,10 @@
 |
 */
 
+
+Route::resource('/group','GroupController');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
