@@ -16,10 +16,9 @@ class CreateDiscussionTable extends Migration
         Schema::create('discussion', function (Blueprint $table) {
             $table->increments('id');
             $table->string('content');
-            $table->integer('idRelation');
             $table->timestamps();
 
-            $table->foreign('idRelation')->references('id')->on('relation');
+            
         });
     }
 

@@ -15,8 +15,8 @@ class CreateRelationTable extends Migration
     {
         Schema::create('relation', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idSender');
-            $table->integer('idReceived');
+            $table->integer('idSender')->unsigned();
+            $table->integer('idReceived')->unsigned();
             $table->integer('status');
             $table->timestamps();
 

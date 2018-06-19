@@ -15,8 +15,8 @@ class CreateGroupUsersTable extends Migration
     {
         Schema::create('groupUsers', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments('idUser');
-            $table->increments('idGroup');
+            $table->integer('idUser')->unsigned();
+            $table->integer('idGroup')->unsigned();
             $table->timestamps();
 
             $table->foreign('idUser')->references('id')->on('users');
@@ -31,6 +31,6 @@ class CreateGroupUsersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('groupUsers');
     }
 }

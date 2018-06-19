@@ -26,12 +26,15 @@ Route::get('/chat', function () {
     return view('welcome');
 });
 
-Route::get('/friends', function () {
-    return view('welcome');
-});
+Route::get('/friends', 'FriendsController@showFriends');
+
+Route::get('/addedFriends', 'FriendsController@getDemand');
+
+Route::get('/acceptFriend/{idAccepted}', 'FriendsController@acceptDemand');
 
 Route::post('/search', 'SearchController@search');
 
+Route::post('/add/{idReceived}','RelationController@add');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
