@@ -15,33 +15,22 @@ class FriendsController
 {
     public function showFriends()
     {
-        $idWaitRelation = [];
-        $relations = \App\Relation::where('status',1)->where('idReceived', Auth::user()->id)->orWhere('idSender', Auth::user()->id)->get();
-        if (count($relations) == 0) {
+        $user = new \App\User();
+        $friends = $user->getFriends();
+
+        if (count($friends) == 0) {
             return view('friends', ['error' => 'Aucun amis']);
-        } else {
-            foreach ($relations as $relation) {
-                if($relation->idSender != Auth::user()->id){$idWaitRelation[] = $relation->idSender;}
-                if($relation->idReceived != Auth::user()->id){$idWaitRelation[] = $relation->idReceived;}
-            }
-            $friends = \App\User::whereIn('id', $idWaitRelation)->get();
-            return view('friends', ['friends' => $friends]);
         }
+        return view('friends', ['friends' => $friends]);
     }
 
     public function getDemand(){
-        $idWaitRelation = [];
-        $relations = \App\Relation::where('idReceived',Auth::user()->id)->where('status',0)->get();
-        if(count($relations) == 0){
-            return view('addFriends',['error' => 'Aucune demande']);
+        $user = new \App\User();
+        $demands = $user->getDemand();
+        if(count($demands) == 0) {
+            return view('addFriends', ['error' => 'Aucune demande']);
         }
-        else {
-            foreach ($relations as $relation) {
-                $idWaitRelation[] = $relation->idSender;
-            }
-            $users = \App\User::whereIn('id',$idWaitRelation)->get();
-            return view('addFriends',['users' => $users]);
-        }
+        return view('addFriends',['users' => $demands]);
     }
 
     public function acceptDemand($idAccepted){
