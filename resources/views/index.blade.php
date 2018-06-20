@@ -26,7 +26,7 @@
 							<td>{!! $group->id !!}</td>
 							<td class="text-primary"><strong>{!! $group->title !!}</strong></td>
 							<td>{!! link_to_route('group.show', 'Voir', [$group->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-							<td>{!! link_to_route('group.edit', 'Modifier', [$group->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+							<td>{!! link_to_route('editGroup', 'Modifier', [$group->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
 							<td>
 								{!! Form::open(['method' => 'DELETE', 'route' => ['group.destroy', $group->id]]) !!}
 									{!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer ce groupe ?\')']) !!}
