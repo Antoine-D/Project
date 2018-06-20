@@ -16,14 +16,11 @@ class SearchController extends Controller
         $users = \App\User::where('name','like','%'.$name.'%')->get();
         $relations = \App\Relation::where('idSender',Auth::user()->id)->orWhere('idReceived',Auth::user()->id)->get();
         foreach ($users as $user) {
+            $user->setAttribute('status', '-1');
             if($user->id == Auth::user()->id){
                 $user->setAttribute('status', '-2');
             }
             else {
-                if(count($relations) == 0){
-                    $user->setAttribute('status', '-1');
-                }
-                else {
                     foreach ($relations as $relation) {
                         if ($relation->idReceived == $user->id || $relation->idSender == $user->id) {
                             if ($relation->status == 0) {
@@ -33,7 +30,6 @@ class SearchController extends Controller
                             }
                         }
                     }
-                }
             }
         }
 
