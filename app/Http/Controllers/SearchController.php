@@ -15,4 +15,12 @@ class SearchController extends Controller
         $users = \App\User::where('name','like','%'.$name.'%')->get();
         return view('search', ['users' => $users]);
     }
+
+    public function searchFriends( Request $request ){
+
+        $name = $request->input( 'search_friends' );
+        if( empty( $name ) ){
+            return view('messenger.createConv', ['error' => "no friends"]);
+        }
+    }
 }

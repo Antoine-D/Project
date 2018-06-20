@@ -14,3 +14,7 @@
         <small><strong>Participants:</strong> {{ $thread->participantsString(Auth::id()) }}</small>
     </p>
 </div>
+
+<div class="media alert">
+  <a>Créer une nouvelle conversation</a>
+</div>
