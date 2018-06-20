@@ -121,4 +121,5 @@ class MessagesController extends Controller
         }
         return redirect()->route('messages.show', $id);
     }
+
 }

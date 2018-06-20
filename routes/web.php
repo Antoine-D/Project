@@ -30,13 +30,24 @@ Route::get('/chat', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::get('/friends', 'FriendsController@showFriends');
 
 Route::get('/addedFriends', 'FriendsController@getDemand');
 
 Route::get('/acceptFriend/{idAccepted}', 'FriendsController@acceptDemand');
+=======
+Route::post('/add', function () {
+    return view('welcome');
+});
+
+Route::get('/friends', function () {
+    return view('welcome');
+});
+>>>>>>> 647e3021b6835f88167622a3144231f9a53f7a39
 
 Route::post('/search', 'SearchController@search');
+Route::post('/searchfriends', 'SearchController@searchFriends');
 
 Route::post('/add/{idReceived}','RelationController@add');
 
@@ -45,6 +56,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'messages'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
     Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    //Route::get('createConv', ['as' => 'messages.createConv', 'uses' => 'MessagesController@createConv']);
     Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);

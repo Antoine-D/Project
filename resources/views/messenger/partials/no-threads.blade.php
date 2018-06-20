@@ -1,1 +1,1 @@
-<p>Sorry, no threads.</p>
+<p>Vous n'avez aucun nouveau message.</p>
