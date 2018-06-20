@@ -7,9 +7,10 @@
 			<div class="panel-heading">Modification d'un groupe</div>
 			<div class="panel-body"> 
 				<div class="col-sm-12">
-					{!! Form::model($group, ['route' => ['group.update', $group->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+					{!! Form::open(['url' => 'update',  'class' => 'form-horizontal panel']) !!}
 					<div class="form-group {!! $errors->has('title') ? 'has-error' : '' !!}">
-					  	{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Titre']) !!}
+					  	{!! Form::text('title', $group->title, ['class' => 'form-control', 'placeholder' => 'Titre']) !!}
+					  	{!! Form::hidden('id', $group->id, ['class' => 'form-control'] ) !!}
 					  	{!! $errors->first('title', '<small class="help-block">:message</small>') !!}
 					</div>
 				
@@ -24,3 +25,5 @@
 		</a>
 	</div>
 @stop
+
+
