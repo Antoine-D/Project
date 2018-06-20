@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layout')
 
 @section('content')
     <a href="{{ url('/friends') }}">Ma liste d'amis</a>

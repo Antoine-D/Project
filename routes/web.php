@@ -34,21 +34,16 @@ Route::get('/chat', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 Route::get('/friends', 'FriendsController@showFriends');
 
 Route::get('/addedFriends', 'FriendsController@getDemand');
 
 Route::get('/acceptFriend/{idAccepted}', 'FriendsController@acceptDemand');
-=======
+
 Route::post('/add', function () {
     return view('welcome');
 });
 
-Route::get('/friends', function () {
-    return view('welcome');
-});
->>>>>>> 647e3021b6835f88167622a3144231f9a53f7a39
 
 Route::post('/search', 'SearchController@search');
 Route::post('/searchfriends', 'SearchController@searchFriends');
@@ -57,8 +52,6 @@ Route::post('/searchfriends', 'SearchController@searchFriends');
 Route::post('/add/{idReceived}','RelationController@add');
 
 //Route::post('/edit/{', 'GroupController@edit');
-
-
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layout')
 
 @section('title') Bienvenue sur Le Monde @endsection
 

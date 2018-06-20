@@ -15,20 +15,22 @@ class SearchController extends Controller
         }
         $users = \App\User::where('name','like','%'.$name.'%')->get();
         $relations = \App\Relation::where('idSender',Auth::user()->id)->orWhere('idReceived',Auth::user()->id)->get();
-
         foreach ($users as $user) {
             if($user->id == Auth::user()->id){
                 $user->setAttribute('status', '-2');
             }
             else {
-                foreach ($relations as $relation) {
-                    if ($relation->idReceived == $user->id || $relation->idSender == $user->id) {
-                        if ($relation->status == 0) {
-                            $user->setAttribute('status', '0');
-                            break;
-                        } elseif ($relation->status == 1) {
-                            $user->setAttribute('status', '1');
-                            break;
+                if(count($relations) == 0){
+                    $user->setAttribute('status', '-1');
+                }
+                else {
+                    foreach ($relations as $relation) {
+                        if ($relation->idReceived == $user->id || $relation->idSender == $user->id) {
+                            if ($relation->status == 0) {
+                                $user->setAttribute('status', '0');
+                            } elseif ($relation->status == 1) {
+                                $user->setAttribute('status', '1');
+                            }
                         }
                     }
                 }
