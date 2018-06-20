@@ -14,6 +14,10 @@
 
 Route::resource('/group','GroupController');
 
+Route::get('edit/{id}', 'GroupController@edit')->name("editGroup");
+
+Route::post('update', 'GroupController@update')->name("updateGroup");
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,7 +53,12 @@ Route::get('/friends', function () {
 Route::post('/search', 'SearchController@search');
 Route::post('/searchfriends', 'SearchController@searchFriends');
 
+
 Route::post('/add/{idReceived}','RelationController@add');
+
+//Route::post('/edit/{', 'GroupController@edit');
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

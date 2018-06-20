@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Group extends Model
 {
-    protected $table ='title';
+    protected $fillable= ['title'];
 
     public $timestamps = false;
 }

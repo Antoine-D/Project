@@ -8,6 +8,7 @@
 			<div class="panel-body"> 
 				<p>Title : {{ $group->title }}</p>
 				
+				
 			</div>
 		</div>				
 		<a href="javascript:history.back()" class="btn btn-primary">

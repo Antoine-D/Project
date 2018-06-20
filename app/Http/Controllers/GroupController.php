@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GroupCreateRequest;
 use App\Http\Requests\GroupUpdateRequest;
+use App\Group;
 
 
 use App\Repositories\GroupRepository;
@@ -23,9 +24,10 @@ class GroupController extends Controller
 
 	public function index()
 	{
+		//$groups=\App\Group::all();
 		$groups = $this->groupRepository->getPaginate($this->nbrPerPage);
 		$links = $groups->setPath('')->render();
-
+		
 		return view('index', compact('groups', 'links'));
 	}
 
@@ -45,7 +47,18 @@ class GroupController extends Controller
 	{
 		$group = $this->groupRepository->getById($id);
 
-		return view('show',  compact('group'));
+		//recup la liste des amis
+		/*$amis = Relations::where('status', '=', 'accepted')
+		->where(function ($query) {
+			$query->where('idReceiver', '=', Auth::id())
+				->orWhere('idSender', '=', Auth::id())
+		);
+		->get();*/
+
+
+
+
+		return view('show',  compact('group', 'amis'));
 	}
 
 	public function edit($id)
@@ -55,9 +68,15 @@ class GroupController extends Controller
 		return view('edit',  compact('group'));
 	}
 
-	public function update(GroupUpdateRequest $request, $id)
+
+	public function update(GroupUpdateRequest $request)
 	{
-		$this->groupRepository->update($id, $request->all());
+		
+			$groupUpdate = Group::find( $request->input('id') );
+			
+			$groupUpdate->title = $request->input('title');
+			$groupUpdate->save();
+
 		
 		return redirect('group')->withOk("Le groupe" . $request->input('title') . " a été modifié.");
 	}
